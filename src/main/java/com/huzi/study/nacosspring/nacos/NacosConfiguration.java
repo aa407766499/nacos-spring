@@ -5,6 +5,8 @@ import com.alibaba.nacos.api.annotation.NacosProperties;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.spring.context.annotation.EnableNacos;
+import com.huzi.study.nacosspring.test.ConfigurationPropertiesTest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
@@ -28,10 +30,15 @@ public class NacosConfiguration {
     @NacosInjected
     private ConfigService configService;
 
+    @Autowired
+    private ConfigurationPropertiesTest propertiesTest;
+
     @PostConstruct
     public void init() {
         if (namingService != namingServiceUTF8) {
             throw new RuntimeException("why?");
         }
     }
+
+
 }
