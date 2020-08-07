@@ -33,12 +33,15 @@ public class NacosConfiguration {
     @Autowired
     private ConfigurationPropertiesTest propertiesTest;
 
+    @Autowired
+    private Apple apple;
+
     @PostConstruct
     public void init() {
         if (namingService != namingServiceUTF8) {
             throw new RuntimeException("why?");
         }
+        System.out.println(apple);
     }
-
 
 }
